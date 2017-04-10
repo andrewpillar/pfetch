@@ -1,6 +1,6 @@
 # pfetch
 
-pfetch is just like [pjax](https://github.com/defunky/jquery-pjax) only it's built on top of [Fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_AP).
+pfetch is just like [pjax](https://github.com/defunkt/jquery-pjax) only it's built on top of [Fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API).
 
 ## Quickstart
 
