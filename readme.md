@@ -13,17 +13,17 @@ To start using pfetch you'll first need to designate elements to contain whateve
 	</head>
 	<body>
 	    <h1>pfetch</h1>
-		<a href="/about.html" data-pfetch="pfetch-body">About</a>
-		<div id="pfetch-body">
-		    This is the container that will contain whatever is returned from pfetch links.
-		</div>
-	</body>
-	<footer>
-	    <script type="text/javascript" src="/js/pfetch.min.js"></script>
-		<script type="text/javascript">
-		    pfetch.run();
-		</script>
-	</footer>
+        <a href="/about.html" data-pfetch="pfetch-body">About</a>
+        <div id="pfetch-body">
+            This is the container that will contain whatever is returned from pfetch links.
+        </div>
+    </body>
+    <footer>
+        <script type="text/javascript" src="/js/pfetch.min.js"></script>
+        <script type="text/javascript">
+            pfetch.run();
+        </script>
+    </footer>
 
 So let's clear a few things up. In the example above we want pfetch to fetch the URL `/about.html`, and replace `#pfetch-body` with the content it gets back.
 
