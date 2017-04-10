@@ -65,8 +65,8 @@ But if you would like, you can pass through your own configuration options.
 
     pfetch.run({
 	    filterHtml: false,
-		containerAttr: "data-custom-attr",
-		defaultContainer: "#custom-container"
+        containerAttr: "data-custom-attr",
+        defaultContainer: "#custom-container"
 	});
 
 **filterHtml**
