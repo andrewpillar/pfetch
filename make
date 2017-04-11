@@ -2,7 +2,7 @@
 
 # Discount Makefile
 
-if [ "$1" == "dist" ]; then
+if [ "$1" == "all" ]; then
 	tail -n +3 src/pfetch.js > src/pfetch-lite.js
 	npm run build
 	npm run dist:lite
