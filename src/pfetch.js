@@ -97,6 +97,8 @@ const pfetch = {
 		}
 
 		fetch(href, init).then((response) => {
+			this._fire("afterFetch", [response]);
+
 			const contentType = response.headers.get("Content-Type");
 
 			if (contentType.indexOf("text/html") == -1) {
