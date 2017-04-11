@@ -809,6 +809,8 @@ var pfetch = {
 		}
 
 		fetch(href, init).then(function (response) {
+			_this._fire("afterFetch", [response]);
+
 			var contentType = response.headers.get("Content-Type");
 
 			if (contentType.indexOf("text/html") == -1) {
@@ -824,7 +826,7 @@ var pfetch = {
 				var title = _this._getTitle(element);
 				var fragment = _this._getFragment(element, container);
 
-				_this._fire("beforeReplace", [document.querySelector(container)]);
+				_this._fire("beforeReplace", [fragment]);
 
 				_this._replaceContent(container, title, fragment.innerHTML);
 
