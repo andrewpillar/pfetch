@@ -13,7 +13,7 @@ To start using pfetch you'll first need to designate elements to contain whateve
 	</head>
 	<body>
 	    <h1>pfetch</h1>
-        <a href="/about.html" data-pfetch="pfetch-body">About</a>
+        <a href="/about.html" data-pfetch="#pfetch-body">About</a>
         <div id="pfetch-body">
             This is the container that will contain whatever is returned from pfetch links.
         </div>
