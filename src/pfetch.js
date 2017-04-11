@@ -61,7 +61,13 @@ const pfetch = {
 
 	_getFragment: function(element, container) {
 		if (this._config.filterHtml) {
-			return element.querySelector(container);
+			let fragment = element.querySelector(container);
+
+			if ( ! fragment) {
+				return { innerHTML: null };
+			}
+
+			return fragment;
 		}
 
 		return element;
