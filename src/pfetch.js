@@ -169,7 +169,7 @@ const pfetch = {
 		document.title = title;
 		containerElement.innerHTML = fragment;
 
-		this._registerEvents(containerElement)
+		this._registerEvents(containerElement);
 	}
 };
 
