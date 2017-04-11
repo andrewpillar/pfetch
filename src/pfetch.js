@@ -112,9 +112,7 @@ const pfetch = {
 				const title = this._getTitle(element);
 				const fragment = this._getFragment(element, container);
 
-				this._fire(
-					"beforeReplace", [document.querySelector(container)]
-				);
+				this._fire("beforeReplace", [fragment]);
 
 				this._replaceContent(container, title, fragment.innerHTML);
 
