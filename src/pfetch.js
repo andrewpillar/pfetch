@@ -148,14 +148,13 @@ const pfetch = {
 		const keys = Object.keys(config);
 		const loadedConfig = this._defaultConfig;
 
-		for (let i = 0; i < keys.length; i++) {
-			const key = keys[i];
+		keys.map((key) => {
 			const value = config[key];
 
 			if (key in loadedConfig) {
 				loadedConfig[key] = value;
 			}
-		}
+		});
 
 		this._config = loadedConfig;
 	},
@@ -164,11 +163,9 @@ const pfetch = {
 		const selector = "a[" + this._config.containerAttr + "]";
 		const links = element.querySelectorAll(selector);
 
-		for (let i = 0; i < links.length; i++) {
-			const link = links[i];
-
+		links.map((link) => {
 			link.addEventListener("click", this._handleClick.bind(this));
-		}
+		});
 	},
 
 	_replaceContent: function(container, title, fragment) {
