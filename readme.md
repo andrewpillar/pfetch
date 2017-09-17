@@ -115,4 +115,4 @@ The `beforeFetch` event is fired before fetching the URL. The body sent with the
 
 ### Server Side
 
-There should be little, to no configuration required on the server side provided that the `filterHtml` option is set to `true`, as this will take care of filtering the content. Should you wish to do anything on the server side then it is recommended that you use the `beforeFetch` event to specify a custom header to be set on the request, which can then be checked on the server for anyt other actions you may wish to perform.
+There should be little, to no configuration required on the server side provided that the `filterHtml` option is set to `true`, as this will take care of filtering the content. Should you wish to do anything on the server side then it is recommended that you use the `beforeFetch` event to specify a custom header to be set on the request, which can then be checked on the server for any other actions you may wish to perform.
