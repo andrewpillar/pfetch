@@ -860,27 +860,26 @@ var pfetch = {
 		var keys = Object.keys(config);
 		var loadedConfig = this._defaultConfig;
 
-		for (var i = 0; i < keys.length; i++) {
-			var key = keys[i];
+		keys.map(function (key) {
 			var value = config[key];
 
 			if (key in loadedConfig) {
 				loadedConfig[key] = value;
 			}
-		}
+		});
 
 		this._config = loadedConfig;
 	},
 
 	_registerEvents: function _registerEvents(element) {
+		var _this2 = this;
+
 		var selector = "a[" + this._config.containerAttr + "]";
 		var links = element.querySelectorAll(selector);
 
-		for (var i = 0; i < links.length; i++) {
-			var link = links[i];
-
-			link.addEventListener("click", this._handleClick.bind(this));
-		}
+		links.map(function (link) {
+			link.addEventListener("click", _this2._handleClick.bind(_this2));
+		});
 	},
 
 	_replaceContent: function _replaceContent(container, title, fragment) {
