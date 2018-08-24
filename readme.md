@@ -13,7 +13,7 @@ To start using pfetch you'll first need to designate elements to contain whateve
 	</head>
 	<body>
 	    <h1>pfetch</h1>
-        <a href="/about.html" data-pfetch="#pfetch-body">About</a>
+        <a href="about.html" data-pfetch="#pfetch-body">About</a>
         <div id="pfetch-body">
             This is the container that will contain whatever is returned from pfetch links.
         </div>
@@ -25,7 +25,7 @@ To start using pfetch you'll first need to designate elements to contain whateve
         </script>
     </footer>
 
-So let's clear a few things up. In the example above we want pfetch to fetch the URL `/about.html`, and replace `#pfetch-body` with the content it gets back.
+So let's clear a few things up. In the example above we want pfetch to fetch the URL `about.html`, and replace `#pfetch-body` with the content it gets back. The HTML response returned from clicking on the link will be filtered down to the element that matches the query selector `#pfetch-body`. If no element can be found then the full HTML response will be used.
 
 But how does pfetch know to target `#pfetch-body` with the returned content? This is done using the `data-pfetch` attribute you can see above. The value of this attribute will correspond with the ID of the element we wish to update with the content returned from the link's URL.
 
