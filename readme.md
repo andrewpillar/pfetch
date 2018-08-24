@@ -39,7 +39,7 @@ If you don't give the `data-pfetch` attribute a value, then pfetch will by defau
 
 ## Installation
 
-You can install pfetch using curl. The polyfill version of pfetch uses the [fetch](https://github.com/github/fetch), and [promise](https://github.com/taylorhakes/promise-polyfill) polyfillys for backwards compatability, whereas the lite version doesn't.
+You can install pfetch using curl. The polyfill version of pfetch uses the [fetch](https://github.com/github/fetch), and [promise](https://github.com/taylorhakes/promise-polyfill) polyfills for backwards compatability, whereas the lite version doesn't.
 
 **Polyfill:**
 
