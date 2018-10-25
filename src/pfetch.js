@@ -86,7 +86,7 @@ const pfetch = {
 	_handleClick: function(e) {
 		e.preventDefault();
 
-		const link = e.target;
+		const link = e.target.closest('a');
 		const href = link.href;
 
 		const init = {
