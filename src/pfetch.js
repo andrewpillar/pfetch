@@ -33,6 +33,8 @@ const pfetch = {
 		}
 	},
 
+	// Create an HTML element so we can use the DOM API to easily select the
+	// part of the DOM we're going to splice in.
 	_createHtmlElement: function(html) {
 		const element = document.createElement("html");
 
@@ -59,12 +61,15 @@ const pfetch = {
 		return container;
 	},
 
-	_getFragment: function(element, container) {
+	// Get section of the given DOM element that we want to splice into the
+	// page using the given selector. If the DOM element cannot be found then
+	// the full DOM element will be returned.
+	_getFragment: function(element, selector) {
 		if (this._config.filterHtml) {
-			let fragment = element.querySelector(container);
+			let fragment = element.querySelector(selector);
 
 			if ( ! fragment) {
-				return { innerHTML: null };
+				return element;
 			}
 
 			return fragment;
@@ -148,13 +153,13 @@ const pfetch = {
 		const keys = Object.keys(config);
 		const loadedConfig = this._defaultConfig;
 
-		keys.map((key) => {
-			const value = config[key];
+		for (let i = 0; i < keys.length; i++) {
+			const value = config[keys[i]];
 
 			if (key in loadedConfig) {
 				loadedConfig[key] = value;
 			}
-		});
+		}
 
 		this._config = loadedConfig;
 	},
@@ -163,9 +168,9 @@ const pfetch = {
 		const selector = "a[" + this._config.containerAttr + "]";
 		const links = element.querySelectorAll(selector);
 
-        for (let i = 0; i < links.length; i++) {
-          links[i].addEventListener("click", this._handleClick.bind(this));
-        }
+		for (let i = 0; i < links.length; i++) {
+			links[i].addEventListener("click", this._handleClick.bind(this));
+		}
 	},
 
 	_replaceContent: function(container, title, fragment) {

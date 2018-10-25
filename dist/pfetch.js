@@ -743,6 +743,8 @@ var pfetch = {
 		}
 	},
 
+	// Create an HTML element so we can use the DOM API to easily select the
+	// part of the DOM we're going to splice in.
 	_createHtmlElement: function _createHtmlElement(html) {
 		var element = document.createElement("html");
 
@@ -769,12 +771,15 @@ var pfetch = {
 		return container;
 	},
 
+	// Get the fragment of the returned HTML content that we want to splice
+	// into the page.
 	_getFragment: function _getFragment(element, container) {
 		if (this._config.filterHtml) {
 			var fragment = element.querySelector(container);
 
 			if (!fragment) {
-				return { innerHTML: null };
+				return element;
+				//				return { innerHTML: null };
 			}
 
 			return fragment;
@@ -860,26 +865,24 @@ var pfetch = {
 		var keys = Object.keys(config);
 		var loadedConfig = this._defaultConfig;
 
-		keys.map(function (key) {
-			var value = config[key];
+		for (var i = 0; i < keys.length; i++) {
+			var value = config[keys[i]];
 
 			if (key in loadedConfig) {
 				loadedConfig[key] = value;
 			}
-		});
+		}
 
 		this._config = loadedConfig;
 	},
 
 	_registerEvents: function _registerEvents(element) {
-		var _this2 = this;
-
 		var selector = "a[" + this._config.containerAttr + "]";
 		var links = element.querySelectorAll(selector);
 
-		links.map(function (link) {
-			link.addEventListener("click", _this2._handleClick.bind(_this2));
-		});
+		for (var i = 0; i < links.length; i++) {
+			links[i].addEventListener("click", this._handleClick.bind(this));
+		}
 	},
 
 	_replaceContent: function _replaceContent(container, title, fragment) {
