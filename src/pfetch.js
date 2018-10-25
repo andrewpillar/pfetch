@@ -156,8 +156,8 @@ const pfetch = {
 		for (let i = 0; i < keys.length; i++) {
 			const value = config[keys[i]];
 
-			if (key in loadedConfig) {
-				loadedConfig[key] = value;
+			if (keys[i] in loadedConfig) {
+				loadedConfig[keys[i]] = value;
 			}
 		}
 
