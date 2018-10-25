@@ -163,9 +163,9 @@ const pfetch = {
 		const selector = "a[" + this._config.containerAttr + "]";
 		const links = element.querySelectorAll(selector);
 
-		links.map((link) => {
-			link.addEventListener("click", this._handleClick.bind(this));
-		});
+        for (let i = 0; i < links.length; i++) {
+          links[i].addEventListener("click", this._handleClick.bind(this));
+        }
 	},
 
 	_replaceContent: function(container, title, fragment) {
