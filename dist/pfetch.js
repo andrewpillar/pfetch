@@ -771,15 +771,15 @@ var pfetch = {
 		return container;
 	},
 
-	// Get the fragment of the returned HTML content that we want to splice
-	// into the page.
-	_getFragment: function _getFragment(element, container) {
+	// Get section of the given DOM element that we want to splice into the
+	// page using the given selector. If the DOM element cannot be found then
+	// the full DOM element will be returned.
+	_getFragment: function _getFragment(element, selector) {
 		if (this._config.filterHtml) {
-			var fragment = element.querySelector(container);
+			var fragment = element.querySelector(selector);
 
 			if (!fragment) {
 				return element;
-				//				return { innerHTML: null };
 			}
 
 			return fragment;
@@ -803,7 +803,7 @@ var pfetch = {
 
 		e.preventDefault();
 
-		var link = e.target;
+		var link = e.target.closest('a');
 		var href = link.href;
 
 		var init = {
@@ -868,8 +868,8 @@ var pfetch = {
 		for (var i = 0; i < keys.length; i++) {
 			var value = config[keys[i]];
 
-			if (key in loadedConfig) {
-				loadedConfig[key] = value;
+			if (keys[i] in loadedConfig) {
+				loadedConfig[keys[i]] = value;
 			}
 		}
 
